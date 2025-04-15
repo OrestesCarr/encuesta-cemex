@@ -9,45 +9,54 @@
     body {
       font-family: 'Outfit', sans-serif;
       background: #f9f9f9;
-      padding: 20px;
+      padding: 0;
       margin: 0;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #0000b3 0%, #f22331 100%);
     }
-    h1 {
+    .form-card {
+      background: white;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 24px;
+      padding: 30px 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .form-card h1 {
       color: #0000b3;
+      margin-bottom: 10px;
+      font-size: 1.8em;
       text-align: center;
     }
-    .intro {
-      margin: 10px 0 30px;
-      font-size: 1em;
+    .form-card p {
       color: #333;
       text-align: justify;
+      margin-bottom: 25px;
     }
     label {
-      font-weight: 500;
-      margin-top: 20px;
+      font-weight: 600;
       display: block;
+      margin-top: 20px;
+      color: #333;
     }
     select, textarea, input[type="file"] {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 8px;
       border: 1px solid #ccc;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 1em;
       box-sizing: border-box;
     }
     textarea {
       resize: vertical;
-      min-height: 100px;
-      max-height: 300px;
+      min-height: 120px;
     }
     .char-counter {
       text-align: right;
@@ -58,92 +67,82 @@
       background: #f22331;
       color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 14px 20px;
       margin-top: 30px;
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 1em;
       cursor: pointer;
-      transition: 0.3s;
       width: 100%;
+      transition: background 0.3s ease;
     }
     button:hover {
       background: #cc1c28;
     }
     @media (max-width: 600px) {
-      .container {
+      .form-card {
         padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Queremos Escucharte</h1>
-    <p class="intro">
-      A través de este formulario se puede hacer llegar información de suma importancia sobre aquellas áreas de oportunidad observables de nuestra unidad de negocio y su entorno.
-    </p>
-    <form id="encuestaForm">
-      <label for="unidad">1. UNIDAD DE NEGOCIO:</label>
-      <select id="unidad" name="unidad" required>
-        <option value="">Selecciona una opción</option>
-        <option value="CD. OBREGÓN">CD. OBREGÓN</option>
-        <option value="COLIMA">COLIMA</option>
-        <option value="CULIACÁN">CULIACÁN</option>
-        <option value="GUASAVE">GUASAVE</option>
-        <option value="IXTLÁN DEL RIO">IXTLÁN DEL RIO</option>
-        <option value="LA BARCA">LA BARCA</option>
-        <option value="LOS CABOS">LOS CABOS</option>
-        <option value="LOS MOCHIS (BODEGA)">LOS MOCHIS (BODEGA)</option>
-        <option value="LOS MOCHIS (ESTACION)">LOS MOCHIS (ESTACION)</option>
-        <option value="MAZATLÁN">MAZATLÁN</option>
-        <option value="MEXICALI">MEXICALI</option>
-        <option value="NAVOJOA">NAVOJOA</option>
-        <option value="NOGALES">NOGALES</option>
-        <option value="PICHILINGUE">PICHILINGUE</option>
-        <option value="PTA. ENSENADA">PTA. ENSENADA</option>
-        <option value="PTA. GUADALAJARA">PTA. GUADALAJARA</option>
-        <option value="PTA. HERMOSILLO (CPN)">PTA. HERMOSILLO (CPN)</option>
-        <option value="PTA. YAQUI">PTA. YAQUI</option>
-        <option value="PTA. ZAPOTILTIC">PTA. ZAPOTILTIC</option>
-        <option value="PUERTO PEÑASCO">PUERTO PEÑASCO</option>
-        <option value="PUERTO VALLARTA">PUERTO VALLARTA</option>
-        <option value="SAN LUIS RIO COLORADO">SAN LUIS RIO COLORADO</option>
-        <option value="TEPATITLAN">TEPATITLAN</option>
-        <option value="TEPIC">TEPIC</option>
-        <option value="TERMINAL GUAYMAS">TERMINAL GUAYMAS</option>
-        <option value="TERMINAL TOPOLOBAMPO">TERMINAL TOPOLOBAMPO</option>
-        <option value="TIJUANA">TIJUANA</option>
-        <option value="TONALA">TONALA</option>
-        <option value="ZAPOPAN">ZAPOPAN</option>
-      </select>
+  <div class="wrapper">
+    <div class="form-card">
+      <h1>Queremos Escucharte</h1>
+      <p>
+        A través de este formulario se puede hacer llegar información de suma importancia sobre aquellas áreas de oportunidad observables de nuestra unidad de negocio y su entorno.
+      </p>
+      <form id="encuestaForm">
+        <label for="unidad">1. UNIDAD DE NEGOCIO:</label>
+        <select id="unidad" name="unidad" required>
+          <option value="">Selecciona una opción</option>
+        </select>
 
-      <label for="area">2. ÁREA A LA QUE CORRESPONDES:</label>
-      <select id="area" name="area" required>
-        <option value="">Selecciona una opción</option>
-        <option value="CLIENTE">CLIENTE</option>
-        <option value="COLABORADOR CEMEX">COLABORADOR CEMEX</option>
-        <option value="PROVEEDOR / CONTRATISTA">PROVEEDOR / CONTRATISTA</option>
-        <option value="OPERADOR AUTOTRANSPORTE">OPERADOR AUTOTRANSPORTE</option>
-      </select>
+        <label for="area">2. ÁREA A LA QUE CORRESPONDES:</label>
+        <select id="area" name="area" required>
+          <option value="">Selecciona una opción</option>
+          <option value="CLIENTE">CLIENTE</option>
+          <option value="COLABORADOR CEMEX">COLABORADOR CEMEX</option>
+          <option value="PROVEEDOR / CONTRATISTA">PROVEEDOR / CONTRATISTA</option>
+          <option value="OPERADOR AUTOTRANSPORTE">OPERADOR AUTOTRANSPORTE</option>
+        </select>
 
-      <label for="comentarios">3. COMENTARIOS:</label>
-      <textarea id="comentarios" name="comentarios" maxlength="1000" required></textarea>
-      <div class="char-counter" id="contador">0 / 1000</div>
+        <label for="comentarios">3. COMENTARIOS:</label>
+        <textarea id="comentarios" name="comentarios" maxlength="1000" required></textarea>
+        <div class="char-counter" id="contador">0 / 1000</div>
 
-      <label for="evidencia">4. COMPARTE TU OBSERVACIÓN (imagen o video):</label>
-      <input type="file" id="evidencia" name="evidencia" accept="image/*,video/*" multiple>
+        <label for="evidencia">4. COMPARTE TU OBSERVACIÓN (imagen o video):</label>
+        <input type="file" id="evidencia" name="evidencia" accept="image/*,video/*" multiple>
 
-      <button type="submit">Enviar</button>
-    </form>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
   </div>
 
   <script>
     const comentarios = document.getElementById('comentarios');
     const contador = document.getElementById('contador');
     const form = document.getElementById('encuestaForm');
+    const unidad = document.getElementById('unidad');
+
+    const unidades = [
+      "CD. OBREGÓN", "COLIMA", "CULIACÁN", "GUASAVE", "IXTLÁN DEL RIO", "LA BARCA",
+      "LOS CABOS", "LOS MOCHIS (BODEGA)", "LOS MOCHIS (ESTACION)", "MAZATLÁN", "MEXICALI",
+      "NAVOJOA", "NOGALES", "PICHILINGUE", "PTA. ENSENADA", "PTA. GUADALAJARA",
+      "PTA. HERMOSILLO (CPN)", "PTA. YAQUI", "PTA. ZAPOTILTIC", "PUERTO PEÑASCO",
+      "PUERTO VALLARTA", "SAN LUIS RIO COLORADO", "TEPATITLAN", "TEPIC", "TERMINAL GUAYMAS",
+      "TERMINAL TOPOLOBAMPO", "TIJUANA", "TONALA", "ZAPOPAN"
+    ];
+
+    unidades.forEach(u => {
+      const option = document.createElement('option');
+      option.value = u;
+      option.textContent = u;
+      unidad.appendChild(option);
+    });
 
     comentarios.addEventListener('input', () => {
-      contador.textContent = \`\${comentarios.value.length} / 1000\`;
+      contador.textContent = `${comentarios.value.length} / 1000`;
     });
 
     form.addEventListener('submit', async function(e) {
@@ -170,12 +169,13 @@
         });
 
         const text = await response.text();
+        console.log("Respuesta de GAS:", text);
         alert("Gracias por tu participación.\n" + text);
         form.reset();
         contador.textContent = "0 / 1000";
       } catch (error) {
-        console.error('Error al enviar el formulario:', error);
-        alert("Ocurrió un error al enviar el formulario. Intenta nuevamente.");
+        console.error("Error en el envío:", error);
+        alert("Error al enviar el formulario. Consulta la consola.");
       }
     });
   </script>
