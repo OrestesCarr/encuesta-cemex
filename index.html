@@ -177,7 +177,24 @@
         console.error("Error en el envío:", error);
         alert("Error al enviar el formulario. Consulta la consola.");
       }
-    });
+    })
+  const datos = {
+  unidad_negocio: 'Logística',
+  area: 'Operaciones',
+  comentarios: 'Prueba de integración',
+  links: ['https://drive.google.com/archivo1']
+};
+
+fetch('/api/guardarRespuesta', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(datos)
+})
+.then(res => res.json())
+.then(data => console.log('🟢 Respuesta del servidor:', data))
+.catch(err => console.error('🔴 Error:', err));
+
+      ;
   </script>
 </body>
 </html>
