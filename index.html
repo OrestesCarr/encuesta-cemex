@@ -177,24 +177,35 @@
         console.error("Error en el envío:", error);
         alert("Error al enviar el formulario. Consulta la consola.");
       }
-    })
-  const datos = {
-  unidad_negocio: 'Logística',
-  area: 'Operaciones',
-  comentarios: 'Prueba de integración',
-  links: ['https://drive.google.com/archivo1']
-};
-
-fetch('/api/guardarRespuesta', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(datos)
-})
-.then(res => res.json())
-.then(data => console.log('🟢 Respuesta del servidor:', data))
-.catch(err => console.error('🔴 Error:', err));
-
-      ;
+    });
   </script>
+  <button onclick="probarFetch()">Probar envío</button>
+
+<script>
+function probarFetch() {
+  const datos = {
+    unidad_negocio: 'Ventas',
+    area: 'Finanzas',
+    comentarios: 'Enviado desde botón de prueba',
+    links: ['https://drive.google.com/test']
+  };
+
+  fetch('/api/guardarRespuesta', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(datos)
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('✅ Respuesta del servidor:', data);
+    alert('¡Guardado correctamente!');
+  })
+  .catch(err => {
+    console.error('❌ Error:', err);
+    alert('Error al guardar.');
+  });
+}
+</script>
+
 </body>
 </html>
