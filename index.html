@@ -179,33 +179,5 @@
       }
     });
   </script>
-  <button onclick="probarFetch()">Probar envío</button>
-
-<script>
-function probarFetch() {
-  const datos = {
-    unidad_negocio: 'Ventas',
-    area: 'Finanzas',
-    comentarios: 'Enviado desde botón de prueba',
-    links: ['https://drive.google.com/test']
-  };
-
-  fetch('/api/guardarRespuesta', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(datos)
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log('✅ Respuesta del servidor:', data);
-    alert('¡Guardado correctamente!');
-  })
-  .catch(err => {
-    console.error('❌ Error:', err);
-    alert('Error al guardar.');
-  });
-}
-</script>
-
 </body>
 </html>
