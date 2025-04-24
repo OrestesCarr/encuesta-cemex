@@ -120,7 +120,7 @@
   </div>
 
   <script>
-    const comentarios = document.getElementById('comentarios');
+    /*const comentarios = document.getElementById('comentarios');
     const contador = document.getElementById('contador');
     const form = document.getElementById('encuestaForm');
     const unidad = document.getElementById('unidad');
@@ -177,7 +177,30 @@
         console.error("Error en el envío:", error);
         alert("Error al enviar el formulario. Consulta la consola.");
       }
+    })*/
+    const datos = {
+      unidad_negocio: document.querySelector('#unidad').value,
+      area: document.querySelector('#area').value,
+      comentarios: document.querySelector('#comentarios').value,
+      links: ['https://drive.google.com/archivo1'] // luego lo armamos con subida real
+    };
+    
+    fetch('/api/guardarRespuesta', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      alert('¡Respuesta guardada!');
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      alert('Hubo un problema al guardar');
     });
+
+    
   </script>
 </body>
 </html>
